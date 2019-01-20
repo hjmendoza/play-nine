@@ -6,6 +6,10 @@ import Answer from './answer.js'
 import Numbers from './numbers.js'
 
 class Game extends Component {
+	state = {
+    selectedNumbers: [],
+  };
+
   render(){
     return(
       <div className="container">
@@ -14,10 +18,10 @@ class Game extends Component {
         <div>
           <Stars />
           <Button />
-          <Answer />
+          <Answer selectedNumbers = {this.state.selectedNumbers}/>
         </div>
         <br />
-        <Numbers />
+        <Numbers selectedNumbers = {this.state.selectedNumbers}/>
       </div>
     )
   }
