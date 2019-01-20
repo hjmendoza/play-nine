@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../styles/game.css';
 import Stars from './stars.js'
 import Button from './button.js';
 import Answer from './answer.js'
@@ -10,8 +11,8 @@ class Game extends Component {
       <div className="container">
         <h1>Play Nine</h1>
         <hr />
-        <div className="row">
-         <Stars />
+        <div>
+          <Stars />
           <Button />
           <Answer />
         </div>

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Button = (props) => {
   return (
-    <div className="col-2">
+    <div  className="iconRow">
       <button>=</button>
     </div>
   );
