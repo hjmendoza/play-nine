@@ -9,7 +9,8 @@ const Button = (props) => {
   switch(props.answerCorrect){
     case true:
     button =       
-    <button className="btn-success">
+    <button className="btn-success"
+            onClick = {props.acceptAnswer}>
     <i className="fa-check"><FontAwesomeIcon icon={faCheck} /></i>
     </button>
       break;

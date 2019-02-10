@@ -30,7 +30,12 @@ class Game extends Component {
   }
 
   acceptAnswer = () => {
-
+    this.setState(prevState => ({
+      usedNumbers: prevState.usedNumbers.concat(prevState.selectedNumbers),
+      selectedNumbers: [],
+      answerCorrect: null,
+      randomStarNum: 1 + Math.floor(Math.random() * 9),
+    }))
   }
 
   checkAnswer = () => {
@@ -55,7 +60,8 @@ class Game extends Component {
           <Stars randomStarNum = {randomStarNum}/>
           <Button selectedNumbers = {selectedNumbers}
                   checkAnswer = {this.checkAnswer}
-                  answerCorrect = { answerCorrect} />
+                  acceptAnswer = {this.acceptAnswer} 
+                  answerCorrect = { answerCorrect}/>
           <Answer selectedNumbers = {selectedNumbers}
                   unselectNumber = {this.unselectNumber} />
         </div>
