@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import '../styles/game.css';
-import Stars from './stars.js'
+import Stars from './stars.js';
 import Button from './button.js';
-import Answer from './answer.js'
-import Numbers from './numbers.js'
+import Answer from './answer.js';
+import Numbers from './numbers.js';
+import DoneFrame from './doneframe.js';
 
 class Game extends Component {
 
@@ -15,6 +16,7 @@ class Game extends Component {
     usedNumbers: [],
     answerCorrect: null,
     redrawCount: 5,
+    doneStatus: null,
   };
 
   selectNumber = (clickedNumber) => {
@@ -65,7 +67,8 @@ class Game extends Component {
       randomStarNum, 
       answerCorrect,
       usedNumbers,
-      redrawCount
+      redrawCount,
+      doneStatus
     } = this.state;
     return(
       <div className="container">
@@ -83,9 +86,12 @@ class Game extends Component {
                   unselectNumber = {this.unselectNumber} />
         </div>
         <br />
-        <Numbers selectedNumbers = {selectedNumbers}
-                selectNumber = {this.selectNumber}
-                usedNumbers = {usedNumbers} />
+        {doneStatus ? 
+         <DoneFrame doneStatus = {doneStatus} /> :
+         <Numbers selectedNumbers = {selectedNumbers}
+         selectNumber = {this.selectNumber}
+         usedNumbers = {usedNumbers} />
+        }
       </div>
     )
   }
