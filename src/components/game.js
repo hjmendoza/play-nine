@@ -15,12 +15,14 @@ class Game extends Component {
   selectNumber = (clickedNumber) => {
     if(this.state.selectedNumbers.indexOf(clickedNumber) >= 0) { return ;}
     this.setState(prevState => ({
+      answerCorrect: null,
       selectedNumbers: prevState.selectedNumbers.concat(clickedNumber)
     }))
   }
 
   unselectNumber = (clickedNumber) => {
     this.setState(prevState => ({
+      answerCorrect: null,
       selectedNumbers: prevState.selectedNumbers
                                 .filter(number => number !== clickedNumber)
     }))
