@@ -38,8 +38,10 @@ const Button = (props) => {
       {button}
       <br />
       <br />
-      <button className="btn-warning" onClick={props.redraw}>
-      <i className="fa-redo"><FontAwesomeIcon icon={faRedo} /></i>
+      <button className="btn-warning" 
+              onClick={props.redraw}
+              disabled={props.redrawCount === 0}>
+      <i className="fa-redo"><FontAwesomeIcon icon={faRedo} /></i>{props.redrawCount}
       </button>
     </div>
   );

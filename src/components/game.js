@@ -11,6 +11,7 @@ class Game extends Component {
     randomStarNum: 1 + Math.floor(Math.random() * 9),
     usedNumbers: [],
     answerCorrect: null,
+    redrawCount: 5,
   };
 
   selectNumber = (clickedNumber) => {
@@ -46,11 +47,13 @@ class Game extends Component {
   }
 
   redraw = () => {
-    this.setState({
+    if(this.state.redrawCount === 0){ return; }
+    this.setState(prevState => ({
       randomStarNum: 1 + Math.floor(Math.random() * 9),
       answerCorrect: null,
       selectedNumbers: [],
-    })
+      redrawCount: prevState.redrawCount - 1 
+    }));
   }
 
   render(){
@@ -58,7 +61,8 @@ class Game extends Component {
       selectedNumbers, 
       randomStarNum, 
       answerCorrect,
-      usedNumbers 
+      usedNumbers,
+      redrawCount
     } = this.state;
     return(
       <div className="container">
@@ -67,6 +71,7 @@ class Game extends Component {
         <div>
           <Stars randomStarNum = {randomStarNum}/>
           <Button selectedNumbers = {selectedNumbers}
+                  redrawCount = {redrawCount}
                   checkAnswer = {this.checkAnswer}
                   acceptAnswer = {this.acceptAnswer}
                   redraw = {this.redraw} 
