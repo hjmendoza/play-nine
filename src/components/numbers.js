@@ -11,7 +11,9 @@ const numberClassName = (number) => {
   return (
     <div className="numbers">
       <div>
-        {nums.map((number, i) => <span key={i} className={numberClassName(number)}>{number}</span> )}
+        {nums.map((number, i) => 
+        <span key={i} className={numberClassName(number)}>{number}</span> 
+        )}
       </div>
     </div>
   );

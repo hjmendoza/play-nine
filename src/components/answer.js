@@ -3,8 +3,9 @@ import React from 'react';
 const Answer = (props) => {
   return (
     <div  className="iconRow">
-      <span>5</span>
-      <span>6</span>
+      {props.selectedNumbers.map((number, i) => 
+        <span key={i}>{number}</span>
+        )}
     </div>
   );
 }
