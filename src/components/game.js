@@ -8,7 +8,8 @@ import Numbers from './numbers.js'
 class Game extends Component {
 	state = {
     selectedNumbers: [],
-    randomStarNum: 1 + Math.floor(Math.random() * 9)
+    randomStarNum: 1 + Math.floor(Math.random() * 9),
+    answerCorrect: null,
   };
 
   selectNumber = (clickedNumber) => {
@@ -25,17 +26,26 @@ class Game extends Component {
     }))
   }
 
+  checkAnswer = () => {
+    this.setState(prevState => ({
+      answerCorrect: prevState.randomStarNum === 
+        prevState.selectedNumbers.reduce((acc, n) => acc + n , 0)
+    }))
+  }
+
   render(){
-    const { selectedNumbers, randomStarNum } = this.state;
+    const { selectedNumbers, randomStarNum, answerCorrect } = this.state;
     return(
       <div className="container">
         <h1>Play Nine</h1>
         <hr />
         <div>
           <Stars randomStarNum = {randomStarNum}/>
-          <Button selectedNumbers = {selectedNumbers} />
+          <Button selectedNumbers = {selectedNumbers}
+                  checkAnswer = {this.checkAnswer}
+                  answerCorrect = { answerCorrect} />
           <Answer selectedNumbers = {selectedNumbers}
-                  unselectNumber = {this.unselectNumber}/>
+                  unselectNumber = {this.unselectNumber} />
         </div>
         <br />
         <Numbers selectedNumbers = {selectedNumbers}
