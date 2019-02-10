@@ -3,7 +3,7 @@ import React from 'react';
 const Button = (props) => {
   return (
     <div  className="iconRow">
-      <button>=</button>
+      <button className="btn" disabled={props.selectedNumbers.length === 0}>=</button>
     </div>
   );
 }
