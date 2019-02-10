@@ -3,6 +3,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faRedo } from '@fortawesome/free-solid-svg-icons'
 
 const Button = (props) => {
   let button;
@@ -35,6 +36,11 @@ const Button = (props) => {
   return (
     <div  className="iconRow">
       {button}
+      <br />
+      <br />
+      <button className="btn-warning" onClick={props.redraw}>
+      <i className="fa-redo"><FontAwesomeIcon icon={faRedo} /></i>
+      </button>
     </div>
   );
 }
