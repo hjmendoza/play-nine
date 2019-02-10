@@ -10,6 +10,12 @@ class Game extends Component {
     selectedNumbers: [],
   };
 
+  selectedNumber = (clickedNumber) => {
+    this.setState(prevState => ({
+      selectedNumbers: prevState.selectedNumbers.concat(clickedNumber)
+    }))
+  }
+
   render(){
     return(
       <div className="container">
@@ -21,7 +27,8 @@ class Game extends Component {
           <Answer selectedNumbers = {this.state.selectedNumbers}/>
         </div>
         <br />
-        <Numbers selectedNumbers = {this.state.selectedNumbers}/>
+        <Numbers selectedNumbers = {this.state.selectedNumbers}
+                selectedNumber = {this.selectedNumber} />
       </div>
     )
   }
