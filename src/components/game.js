@@ -6,9 +6,12 @@ import Answer from './answer.js'
 import Numbers from './numbers.js'
 
 class Game extends Component {
+
+  static randomNumber = () => 1 + Math.floor(Math.random() * 9)
+
 	state = {
     selectedNumbers: [],
-    randomStarNum: 1 + Math.floor(Math.random() * 9),
+    randomStarNum: Game.randomNumber(),
     usedNumbers: [],
     answerCorrect: null,
     redrawCount: 5,
@@ -35,7 +38,7 @@ class Game extends Component {
       usedNumbers: prevState.usedNumbers.concat(prevState.selectedNumbers),
       selectedNumbers: [],
       answerCorrect: null,
-      randomStarNum: 1 + Math.floor(Math.random() * 9),
+      randomStarNum: Game.randomNumber(),
     }))
   }
 
@@ -49,7 +52,7 @@ class Game extends Component {
   redraw = () => {
     if(this.state.redrawCount === 0){ return; }
     this.setState(prevState => ({
-      randomStarNum: 1 + Math.floor(Math.random() * 9),
+      randomStarNum: Game.randomNumber(),
       answerCorrect: null,
       selectedNumbers: [],
       redrawCount: prevState.redrawCount - 1 
