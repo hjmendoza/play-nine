@@ -11,10 +11,17 @@ class Game extends Component {
     randomStarNum: 1 + Math.floor(Math.random() * 9)
   };
 
-  selectedNumber = (clickedNumber) => {
+  selectNumber = (clickedNumber) => {
     if(this.state.selectedNumbers.indexOf(clickedNumber) >= 0) { return ;}
     this.setState(prevState => ({
       selectedNumbers: prevState.selectedNumbers.concat(clickedNumber)
+    }))
+  }
+
+  unselectNumber = (clickedNumber) => {
+    this.setState(prevState => ({
+      selectedNumbers: prevState.selectedNumbers
+                                .filter(number => number !== clickedNumber)
     }))
   }
 
@@ -26,11 +33,12 @@ class Game extends Component {
         <div>
           <Stars randomStarNum = {this.state.randomStarNum}/>
           <Button />
-          <Answer selectedNumbers = {this.state.selectedNumbers}/>
+          <Answer selectedNumbers = {this.state.selectedNumbers}
+                  unselectNumber = {this.unselectNumber}/>
         </div>
         <br />
         <Numbers selectedNumbers = {this.state.selectedNumbers}
-                selectedNumber = {this.selectedNumber} />
+                selectNumber = {this.selectNumber} />
       </div>
     )
   }

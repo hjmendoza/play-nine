@@ -13,7 +13,7 @@ const numberClassName = (number) => {
       <div>
         {nums.map((number, i) => 
         <span key={i} className={numberClassName(number)}
-              onClick={() => props.selectedNumber(number)}>
+              onClick={() => props.selectNumber(number)}>
               {number}
         </span> 
         )}
