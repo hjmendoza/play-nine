@@ -113,8 +113,10 @@ class Game extends Component {
 
     return(
       <div className="container">
-        <h1>Play Nine</h1>
-        <hr />
+        <div className="header">
+          <h1>Play Nine</h1>
+          <hr />
+        </div>
         <div>
           <Stars randomStarNum = {randomStarNum}/>
           <Button selectedNumbers = {selectedNumbers}
