@@ -89,3 +89,23 @@ h1{
 .faRedo {
   margin-right: 0.5em;
 }
+
+.fa-question{
+  margin-top: 1em;
+  font-size: 1em;
+}
+
+.tutorial{
+  text-align: center;
+  padding: 0.5em;
+}
+.tutorial ul{
+  list-style-type: circle;
+  /* direction: rtl; */
+  list-style-position: inside;
+  padding: 0.5em;
+}
+
+.tutorial li{
+  padding: 0.2em;
+}
