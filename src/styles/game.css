@@ -6,6 +6,9 @@
   color: rgb(255, 229, 81);
 
 }
+/* .stars{
+  display:inline-block;
+} */
 
 .iconRow{
   display: inline-block;
@@ -71,7 +74,16 @@ h1{
 .btn-redo{
   width: 4em;
   font-size: 1em;
+}
 
+.done{
+  font-size: 2em;
+  font-family: 'Sigmar One', cursive;
+}
+
+.btn-play-again{
+  width: 6em;
+  font-size: 0.5em;
 }
 
 .faRedo {
