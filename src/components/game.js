@@ -5,6 +5,7 @@ import Button from './button.js';
 import Answer from './answer.js';
 import Numbers from './numbers.js';
 import DoneFrame from './doneframe.js';
+import Tutorial from './tutorial.js';
 
 var possibleCombinationSum = function(arr, n) {
   if (arr.indexOf(n) >= 0) { return true; }
@@ -34,6 +35,7 @@ class Game extends Component {
       answerCorrect: null,
       redrawCount: 5,
       doneStatus: null,
+      showingTutorial: false
   });
 
 	state = Game.initialState();
@@ -101,6 +103,21 @@ class Game extends Component {
     });
   }
 
+  // hideTutorial = () => {
+  //   this.setState({
+  //     showingTutorial: false
+  //   })
+  // }
+
+  showTutorial = () => {
+    if(this.state.showingTutorial === false){
+      this.setState({ showingTutorial: true })
+    }
+    if(this.state.showingTutorial === true){
+      this.setState({ showingTutorial: false})
+    }
+  }
+
   render(){
     const { 
       selectedNumbers, 
@@ -108,7 +125,8 @@ class Game extends Component {
       answerCorrect,
       usedNumbers,
       redrawCount,
-      doneStatus
+      doneStatus,
+      showingTutorial
     } = this.state;
 
     return(
@@ -138,6 +156,8 @@ class Game extends Component {
                   selectNumber = {this.selectNumber}
                   usedNumbers = {usedNumbers} />
         }
+        <Tutorial showingTutorial = {showingTutorial}
+                  showTutorial = {this.showTutorial}/>
       </div>
     );
   }
