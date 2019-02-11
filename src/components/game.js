@@ -93,7 +93,7 @@ class Game extends Component {
   updateDoneStatus = () => {
     this.setState(prevState => {
       if(prevState.usedNumbers.length === 9) {
-        return {doneStatus: 'Done. You win!'};
+        return {doneStatus: 'Congratulations - You win!'};
       }
       if(prevState.redrawCount === 0 && !this.possibleSolutions(prevState)) {
         return {doneStatus: 'Game Over!'}
@@ -113,18 +113,22 @@ class Game extends Component {
 
     return(
       <div className="container">
-        <h1>Play Nine</h1>
-        <hr />
+        <div className="header">
+          <h1>Play Nine</h1>
+          <hr />
+        </div>
         <div>
           <Stars randomStarNum = {randomStarNum}/>
+          <Answer selectedNumbers = {selectedNumbers}
+                  unselectNumber = {this.unselectNumber} />
+          <br/>
           <Button selectedNumbers = {selectedNumbers}
                   redrawCount = {redrawCount}
                   checkAnswer = {this.checkAnswer}
                   acceptAnswer = {this.acceptAnswer}
                   redraw = {this.redraw} 
                   answerCorrect = { answerCorrect}/>
-          <Answer selectedNumbers = {selectedNumbers}
-                  unselectNumber = {this.unselectNumber} />
+
         </div>
         <br />
         {doneStatus ? 
