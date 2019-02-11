@@ -10,16 +10,15 @@ const Button = (props) => {
   switch(props.answerCorrect){
     case true:
       button =       
-      <button className="btn-success"
-              onClick = {props.acceptAnswer}>
-      <i className="fa-check"><FontAwesomeIcon icon={faCheck} /></i>
+      <button className="btn-success" onClick = {props.acceptAnswer}>
+        <i className="fa-check"><FontAwesomeIcon icon={faCheck} /></i>
       </button>
       break;
 
     case false:
       button =       
       <button className="btn-danger">
-      <i className="fa-times"><FontAwesomeIcon icon={faTimes} /></i>
+        <i className="fa-times"><FontAwesomeIcon icon={faTimes} /></i>
       </button>
       break;
     

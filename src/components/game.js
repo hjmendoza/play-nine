@@ -42,6 +42,7 @@ class Game extends Component {
 
   selectNumber = (clickedNumber) => {
     if(this.state.selectedNumbers.indexOf(clickedNumber) >= 0) { return ;}
+    if(this.state.usedNumbers.indexOf(clickedNumber) >= 0) { return ;}
     this.setState(prevState => ({
       answerCorrect: null,
       selectedNumbers: prevState.selectedNumbers.concat(clickedNumber)
@@ -59,8 +60,8 @@ class Game extends Component {
     this.setState(prevState => ({
       answerCorrect: prevState.randomStarNum === 
         prevState.selectedNumbers.reduce((acc, n) => acc + n , 0)
-    }))
-  }
+    }));
+  };
 
   acceptAnswer = () => {
     this.setState(prevState => ({
@@ -83,8 +84,8 @@ class Game extends Component {
   }
 
   possibleSolutions = ({randomStarNum, usedNumbers}) => {
-    // let nums = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-    const possibleNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9].filter(number => usedNumbers.indexOf(number) === -1); 
+    let nums = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    const possibleNumbers = nums.filter(number => usedNumbers.indexOf(number) === -1); 
 
     return possibleCombinationSum(possibleNumbers, randomStarNum);
   }
@@ -109,6 +110,7 @@ class Game extends Component {
       redrawCount,
       doneStatus
     } = this.state;
+
     return(
       <div className="container">
         <h1>Play Nine</h1>
@@ -133,7 +135,7 @@ class Game extends Component {
                   usedNumbers = {usedNumbers} />
         }
       </div>
-    )
+    );
   }
 }
 
