@@ -2,6 +2,7 @@ import React from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
+import { faCheckDouble } from '@fortawesome/free-solid-svg-icons'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { faRedo } from '@fortawesome/free-solid-svg-icons'
 
@@ -10,14 +11,14 @@ const Button = (props) => {
   switch(props.answerCorrect){
     case true:
       button =       
-      <button className="btn-success" onClick = {props.acceptAnswer}>
-        <i className="fa-check"><FontAwesomeIcon icon={faCheck} /></i>
+      <button className="btn-verify" onClick = {props.acceptAnswer}>
+        <i className="fa-check"><FontAwesomeIcon icon={faCheckDouble} /></i>
       </button>
       break;
 
     case false:
       button =       
-      <button className="btn-danger">
+      <button className="btn-verify">
         <i className="fa-times"><FontAwesomeIcon icon={faTimes} /></i>
       </button>
       break;
@@ -27,7 +28,7 @@ const Button = (props) => {
         <button className="btn" 
                 onClick={props.checkAnswer}
                 disabled={props.selectedNumbers.length === 0}>
-        = 
+        <i><FontAwesomeIcon icon={faCheck} /></i>
         </button>
       break;
 
@@ -35,12 +36,10 @@ const Button = (props) => {
   return (
     <div  className="iconRow">
       {button}
-      <br />
-      <br />
-      <button className="btn-warning" 
+      <button className="btn-redo" 
               onClick={props.redraw}
               disabled={props.redrawCount === 0}>
-      <i className="fa-redo"><FontAwesomeIcon icon={faRedo} /></i>{props.redrawCount}
+      <i className="faRedo"><FontAwesomeIcon icon={faRedo} /></i>{props.redrawCount}
       </button>
     </div>
   );

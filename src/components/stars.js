@@ -11,7 +11,7 @@ const Stars = (props) => {
   }
    
   return (
-    <div className="iconRow">
+    <div className="stars">
       {stars}
     </div>
   );

@@ -119,14 +119,16 @@ class Game extends Component {
         </div>
         <div>
           <Stars randomStarNum = {randomStarNum}/>
+          <Answer selectedNumbers = {selectedNumbers}
+                  unselectNumber = {this.unselectNumber} />
+          <br/>
           <Button selectedNumbers = {selectedNumbers}
                   redrawCount = {redrawCount}
                   checkAnswer = {this.checkAnswer}
                   acceptAnswer = {this.acceptAnswer}
                   redraw = {this.redraw} 
                   answerCorrect = { answerCorrect}/>
-          <Answer selectedNumbers = {selectedNumbers}
-                  unselectNumber = {this.unselectNumber} />
+
         </div>
         <br />
         {doneStatus ? 

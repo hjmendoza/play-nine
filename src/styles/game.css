@@ -8,16 +8,12 @@
 }
 
 .iconRow{
-  margin: 1em;
+  display: inline-block;
 }
 
-/* .container{
-  margin: auto;
-  height: auto;
-} */
 span {
   display: inline-block;
-  margin: 0.5em;
+  margin: 1em;
   text-align: center;
   background-color: rgb(134, 223, 82);
   color: rgb(0, 78, 0);
@@ -58,4 +54,26 @@ h1{
   background: -webkit-linear-gradient(-45deg, #ffb76b 7%,#ffa73d 35%,#ff7c00 82%,#ff7c00 82%,#ff7f04 100%); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(135deg, #ffb76b 7%,#ffa73d 35%,#ff7c00 82%,#ff7c00 82%,#ff7f04 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb76b', endColorstr='#ff7f04',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.btn{
+  width: 3em;
+  font-size: 1em;
+  margin-right: 2em;
+}
+
+.btn-verify{
+  width: 3em;
+  margin-right: 2em;
+  font-size: 1em;
+}
+
+.btn-redo{
+  width: 4em;
+  font-size: 1em;
+
+}
+
+.faRedo {
+  margin-right: 0.5em;
 }
